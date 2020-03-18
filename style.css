@@ -24,9 +24,29 @@ body {
   font-size: 14px;
   text-transform: uppercase;
 }
+/* Heart pulse HEADER  */
 .nav-tagline-heart {
   color: #f16059;
+  animation: heartbeat 2s infinite alternate;
+	transform-origin: center;
 }
+/* Heart beat animation */
+
+@keyframes heartbeat {
+  0%{transform: scale( 1 );}
+  10%{transform: scale( 1 );}
+  20%{transform: scale( 1 );}
+  30%{transform: scale( 1 );}
+  40%{transform: scale( 1 );}
+  45%{transform: scale( 1 );}
+  50%{transform: scale( 1.2 );}
+  55%{transform: scale( 1 );}
+  60%{transform: scale( 1 );}
+  70%{transform: scale( 1 );}
+  80%{transform: scale( 1 );}
+  100% { transform: scale( 1 );}
+}
+
 .nav-tagline-cta {
   margin: 0;
 }
@@ -211,9 +231,85 @@ body {
 .article-text h2 {
   margin: 0;
   font-size: 2.25rem;
-  font-weight: 700;
   padding-top: 1.5rem;
   line-height: 1.25;
+}
+
+/* QUIZ BOX  */
+.quiz-box {
+  display: flex;
+  background-color: #f5f5f5;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  overflow: auto;
+  padding: 1.25rem;
+}
+.quiz-box-img {
+  margin-right: 50px;
+  width: 30%;
+}
+.quiz-box-img img {
+  border-radius: .5rem;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background: #696464;
+  border: 17px solid #fff;
+  border-width: 17px 7px;
+  box-shadow: 0 1px 5px #333;
+  padding: 2px;
+  -webkit-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s,-webkit-transform .5s;
+}
+.quiz-box-img img:hover {
+  -webkit-transform: rotate(3deg);
+  transform: rotate(3deg);
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s,-webkit-transform .5s;
+}
+.quiz-box-content {
+  width: 70%;
+}
+.quiz-box h3 {
+  padding-top: 1.5rem;
+  font-size: 1.875rem;
+  margin: 0;
+}
+.quiz-box p {
+  padding: 0;
+    line-height: 1.375;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+.quiz-box-form {
+  display: flex;
+}
+.quiz-box-form input {
+  font-size: 1rem;
+    padding: .75rem 1rem;
+    border: 0;
+    width: 70%;
+    margin-right: 14px;
+}
+.quiz-box-form button {
+  font-size: 1rem;
+  padding: .75rem 1rem;
+  background-color: #f16059;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 0;
+  width: 30%;
+}
+.quiz-box-content small {
+  display: block;
+  margin-top: 16px;
+  color: #999;
+  word-break: break-word;
 }
 
   /*aside aticle  */
@@ -478,7 +574,7 @@ footer {
 /* LG SCREEN */
 @media screen and (min-width: 1080px) {
   /* FOOTER  */
-  .courses-coloumn .sub-menu{
+  .courses-coloumn .sub-menu {
     column-count: 2;
   }
   .resources-company-coloumn {
@@ -496,6 +592,7 @@ footer {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 9999;
   }
   /* TAGLINE  */
   .nav-tagline {
@@ -548,7 +645,7 @@ footer {
     height: calc(100vh - 28px);
     transition: all .3s ease-out;
   }
-  .menu-mobile.open{
+  .menu-mobile.open {
     width: 340px;
     transition: all .3s ease-out;
   }
@@ -599,34 +696,26 @@ footer {
   .mobile-menu-list li a span {
     padding-left: 32px;
   }
-  .icon-skillcrush:before {
+  .mobile-menu-list .icons::before {
     font-family: FontAwesome;
-    content: "\f05a";
     position: absolute;
+  }
+  .icon-skillcrush:before {
+    content: "\f05a";
   }
   .icon-courses:before {
-    font-family: FontAwesome;
     content: "\f19d";
-    position: absolute;
   }
-  .icon-reviews:before{
-    font-family: FontAwesome;
+  .icon-reviews:before {
     content: "\f005";
-    position: absolute;
   }
-  .icon-coding-camp:before{
-    font-family: FontAwesome;
-    position: absolute;
+  .icon-coding-camp:before {
     content: "\f09c";
   }
-  .icon-singin:before{
-    font-family: FontAwesome;
-    position: absolute;
+  .icon-singin:before {
     content: "\f090";
   }
-  .icon-blog:before{
-    font-family: FontAwesome;
-    position: absolute;
+  .icon-blog:before {
     content: "\f233";
   }
   .mobile-menu-list .icon-coding-camp {
@@ -664,8 +753,7 @@ footer {
   .article-content aside {
     padding-bottom: 1.5rem;
     border-bottom: 1px solid #d7d7d7;
-    margin-bottom: 1.5rem;
-    margin-right:0;
+    margin: 0 0 1.5rem 0;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
@@ -717,6 +805,13 @@ footer {
   }
 
   /* ARTICLE  */
+  /* QUIZ BOX */
+  .quiz-box h3 {
+    font-size: 1.25rem;
+  }
+  .quiz-box p {
+    font-size: 1rem;
+  }
   /* ASIDE */
   .share-link-hide {
     display: none;
@@ -761,10 +856,8 @@ footer {
   .footer-menu {
     flex-direction: column;
   }
-  .footer-help p {
-    padding: 0;
-  }
-  .footer-menu .footer-coloumn {
+  .footer-help p ,
+  .footer-menu .footer-coloumn  {
     padding: 0;
   }
   .footer-info {
@@ -780,11 +873,34 @@ footer {
   }
 }
 
+/* M SCREEN */
 @media screen and (max-width: 576px){
   .menu-mobile.open {
     width: 100vw;
   }
   .menu-mobile-bg{
     display: none;
+  }
+
+  .quiz-box {
+    flex-direction: column;
+  }
+  .quiz-box-img {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .quiz-box-content {
+    width: 100%;
+  }
+  .quiz-box-content .quiz-box-form {
+    display: flex;
+    flex-direction: column;
+  }
+  .quiz-box-form input, .quiz-box-form button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .quiz-box-form input {
+    margin-bottom: 1.25rem;
   }
 }
